@@ -22,11 +22,20 @@
         opacity: 0;
         transform: translate(-50%,-50%) scale(.25);
         transition: all .4s .2s;
+
+        @include respond(tab-port) {
+            display: inline-block;
+        }
     }
 
     &__left {
         width: 33.3%;
         display: table-cell;//child
+        
+        @include respond(tab-port) {
+            width: 100%;
+            display: inline-block;
+        }
     }
 
     &__right {
@@ -34,11 +43,21 @@
         display: table-cell;
         vertical-align: middle;
         padding: 3rem 5rem;
+
+        @include respond(tab-port) {
+            width: 100%;
+            display: inline-block;
+            vertical-align: bottom;
+        }
     }
 
     &__img {
         display: inline-block;
         width: 100%;
+
+        @include respond(tab-port) {
+            width: 48%;
+        }
     }
 
     &__text {
@@ -57,6 +76,10 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
         hyphens: auto;//set at the head of html about lang=""
+
+        @include respond(phone) {
+            column-count: 1;
+        }
     }
 
     //open states
@@ -82,6 +105,11 @@
             display: inline-block;
             transition: all .2s;
             line-height: 1;
+
+            @include respond(tab-port) {
+                top: 1.5rem;
+                right: 1rem;
+            }
         }
 
         &:hover {

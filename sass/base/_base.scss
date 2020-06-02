@@ -10,9 +10,30 @@
 html {
     font-size: 62.5%;
     // this define what 1rem is, so doesn't go to typography
+    
+    // @include respond(phone) {
+    //     font-size: 30%;//1rem=4.8rem
+    // }
+
+    @include respond(tab-land) { //larger one before the smaller one when conflict
+        font-size: 56.25%; //1rem =9px
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; //1rem = 8px
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem=12px
+    }
 }
 
 body {
     box-sizing: border-box;
     /* the box-sizing use inherit, is a slightly better ways to make easier to change box-sizing */
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;//solve the white gap 
+    }
 }
