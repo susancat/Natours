@@ -37,3 +37,8 @@ body {
         padding: 0;//solve the white gap 
     }
 }
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
