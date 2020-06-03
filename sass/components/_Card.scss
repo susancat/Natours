@@ -1,8 +1,9 @@
 //FUNCTIONALITY
 .card {
+    -moz-perspective: 150rem;//for firefox
+    -webkit-perspective: 150rem;
     perspective: 150rem;
     //the lower the value, the more dramastic change
-    -moz-perspective: 150rem;//for firefox
     position: relative;
     height: 52rem;//doing this otherwise card lost height
 
@@ -14,6 +15,7 @@
         top: 0;
         left: 0;
         width: 100%;
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         //will hide the backpart of the element,so when front show,back hide
         border-radius: 3px;//will be overflow by the pic
@@ -55,10 +57,13 @@
         background-size: cover;
         height: 23rem;
         background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
+
+        @supports (-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0)) {
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
 
         &--1 {
             background-image: linear-gradient(
